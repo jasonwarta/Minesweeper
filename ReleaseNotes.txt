@@ -1,0 +1,24 @@
+Required APIS:
+SDL2
+SDL2_image
+SDL2_tty.
+SDL2_mixer
+
+Please note required fix for SDL 2 - 
+To fix the "winapifamily.h" issue, replace the SDL_platform.h header file with the one in the patch directory.
+IE: SDL2\i686-w64-mingw32\include\SDL2
+
+In Codeblocks: 
+Linker Options:
+-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+Beware of order:  It's important!
+
+Search directories:
+Compiler: SDL2\i686-w64-mingw32\include\SDL2
+Linker: SDL2\i686-w64-mingw32\lib
+
+You'll want to copy the i686 directories from SDL2_image and SDL2_tty to the SDL2 directory.
+
+Adjust the project so the executable is generated in the root directory.
+
+-jtb: What did you guys do, it's not compiling for me anymore!  I added the sdl2_mixer.  It's complaining about all the animation stuff.
